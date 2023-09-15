@@ -5,6 +5,8 @@
 
 ### Technologies used
 - FastAPI
+- SQLAlchemy
+- Docker
 - Pipenv
 - Pre-commit
 

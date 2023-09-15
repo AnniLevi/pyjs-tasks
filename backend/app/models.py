@@ -1,7 +1,7 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Boolean, Column, Integer, String
 from sqlalchemy.dialects.postgresql import TEXT
 
-from .config.db_config import Base
+from .db.db_config import Base
 
 
 class Task(Base):
@@ -10,3 +10,4 @@ class Task(Base):
     id = Column(Integer, primary_key=True)
     title = Column(String)
     description = Column(TEXT)
+    is_done = Column(Boolean, default=False)
