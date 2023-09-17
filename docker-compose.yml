@@ -11,14 +11,14 @@ services:
     depends_on:
       - database
 
-#  frontend:
-#    build:
-#      context: frontend
-#    ports:
-#      - "3000:3000"
-#    volumes:
-#      - ./frontend:/front
-#    env_file: envs/.front.env
+  frontend:
+    build:
+      context: frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/front
+    env_file: envs/.front.env
 
   database:
     image: postgres:15.1-alpine

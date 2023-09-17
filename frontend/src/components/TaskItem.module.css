@@ -1,0 +1,14 @@
+h2 {
+  margin: 1rem;
+  width: 80%;
+}
+
+.isDone {
+  padding: 1rem;
+  margin-left: auto;
+  align-self: center;
+}
+
+.isDone input {
+  margin: 0 0.5rem;
+}

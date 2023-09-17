@@ -1,0 +1,68 @@
+h1 {
+  color: var(--color-primary-600);
+}
+
+.form {
+  max-width: 40rem;
+  margin: 2rem auto;
+  color: var(--color-gray-900);
+}
+
+.form label,
+.form input,
+.form textarea {
+  display: block;
+  width: 100%;
+}
+
+.form input,
+.form textarea {
+  font: inherit;
+  padding: 0.25rem;
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-800);
+  border: none;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.actions button {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  background-color: var(--color-gray-500);
+  color: var(--color-gray-900);
+  border: none;
+}
+
+.actions button[type="button"] {
+  background-color: transparent;
+  color: var(--color-gray-600);
+}
+
+.actions button[type="button"]:hover {
+  color: var(--color-gray-300);
+}
+
+#deleteButton:hover {
+  background-color: var(--color-red-500);
+}
+
+.actions button:hover {
+  background-color: var(--color-primary-600);
+}
+
+.actions button[type="button"]:hover {
+  background-color: var(--color-gray-500);
+}
+
+.isDone input {
+  accent-color: var(--color-primary-600);
+  width: 1.5rem;
+  height: 1.5rem;
+}

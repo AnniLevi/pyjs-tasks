@@ -8,6 +8,6 @@ class Task(Base):
     __tablename__ = "tasks"
 
     id = Column(Integer, primary_key=True)
-    title = Column(String)
-    description = Column(TEXT)
+    title = Column(String, nullable=False)
+    description = Column(TEXT, nullable=False)
     is_done = Column(Boolean, default=False)

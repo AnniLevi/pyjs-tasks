@@ -5,7 +5,7 @@ from ..schemas import tasks_schemas
 
 
 def fetch_tasks_db(db: Session, offset: int, limit: int):
-    return db.query(Task).offset(offset).limit(limit).all()
+    return db.query(Task).order_by(Task.id.desc()).offset(offset).limit(limit).all()
 
 
 def fetch_task_detail_db(db: Session, task_id: int):
