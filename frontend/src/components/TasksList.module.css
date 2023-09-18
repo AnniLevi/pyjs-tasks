@@ -20,7 +20,7 @@
 .button-new:hover,
 .button-new:active,
 .button-new.active {
-  background-color: var(--color-primary-600);
+  background-color: var(--color-primary-700);
 }
 
 .list {

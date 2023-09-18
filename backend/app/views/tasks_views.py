@@ -1,3 +1,5 @@
+from time import sleep
+
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
@@ -16,6 +18,7 @@ tasks_router = APIRouter()
 def all_tasks_view(
     query_params: dict = Depends(pagination_query_params), db: Session = Depends(get_db)
 ):
+    sleep(5)
     return db_crud.fetch_tasks_db(db=db, **query_params)
 
 
@@ -32,6 +35,7 @@ def create_task_view(task: tasks_schemas.TaskCreate, db: Session = Depends(get_d
     status_code=status.HTTP_200_OK,
 )
 def task_detail_view(task_id: int, db: Session = Depends(get_db)):
+    sleep(5)
     task = db_crud.fetch_task_detail_db(db=db, task_id=task_id)
     if not task:
         raise HTTPException(

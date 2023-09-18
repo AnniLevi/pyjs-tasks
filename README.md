@@ -1,6 +1,13 @@
-## End-to-End Task List Management Application
+## Task List Management Application
 
 ### Features
+
+- Ready-made solution with backend and frontend layers
+- Displaying task list and task detail page
+- Creating / modifying / deleting a task
+- Error handling
+- Calculation of server response time with warning if server response delay exceeds 500 milliseconds
+- The application is packaged in Docker containers and ready to launch
 
 ### Technologies used
 
@@ -15,3 +22,14 @@
 ### Prerequisites
 
 - Docker
+
+### How to run
+
+- Create .env files based on the given examples
+- Run Docker in the root directory
+
+```
+docker-compose up -d --build
+```
+
+- The response delay in the backend part is added for an example of handling the response time from the server

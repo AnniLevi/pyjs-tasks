@@ -1,13 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import RootLayout from "./components/RootLayout";
-import TasksList from "./components/TasksList";
 import Error from "./components/Error";
 import WeatherInfo from "./components/WeatherInfo";
 import TaskDetail from "./components/TaskDetail";
 import NewTask from "./components/NewTask";
 import { manipulateTaskAction } from "./utils/actions";
 import { tasksLoader, taskDetailLoader } from "./utils/loaders";
+import TasksLayout from "./components/TasksLayout";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +17,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <TasksList />,
+        id: "tasks",
+        element: <TasksLayout />,
         loader: tasksLoader,
         children: [
           {

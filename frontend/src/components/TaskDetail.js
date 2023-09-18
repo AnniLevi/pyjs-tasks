@@ -1,14 +1,17 @@
 import {
+  Await,
+  useLoaderData,
   useOutletContext,
-  useRouteLoaderData,
   useSubmit,
 } from "react-router-dom";
+import { Suspense } from "react";
 
 import Modal from "./Modal";
 import TaskForm from "./TaskForm";
+import LoadingSpinner from "./LoadingSpinner";
 
 function TaskDetail() {
-  const task = useRouteLoaderData("task-detail");
+  const { task } = useLoaderData();
   const hideModal = useOutletContext();
   const submit = useSubmit();
 
@@ -24,13 +27,19 @@ function TaskDetail() {
 
   return (
     <Modal onClick={hideModal}>
-      <TaskForm
-        task={task}
-        method="PATCH"
-        onClose={hideModal}
-        title="Edit Task"
-        onDelete={deleteTaskHandler}
-      />
+      <Suspense fallback={<LoadingSpinner />}>
+        <Await resolve={task}>
+          {(loadedTask) => (
+            <TaskForm
+              task={loadedTask}
+              method="PATCH"
+              onClose={hideModal}
+              title="Edit Task"
+              onDelete={deleteTaskHandler}
+            />
+          )}
+        </Await>
+      </Suspense>
     </Modal>
   );
 }

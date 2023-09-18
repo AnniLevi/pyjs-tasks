@@ -54,7 +54,7 @@ h1 {
 }
 
 .actions button:hover {
-  background-color: var(--color-primary-600);
+  background-color: var(--color-primary-700);
 }
 
 .actions button[type="button"]:hover {
@@ -62,7 +62,7 @@ h1 {
 }
 
 .isDone input {
-  accent-color: var(--color-primary-600);
+  accent-color: var(--color-primary-700);
   width: 1.5rem;
   height: 1.5rem;
 }
