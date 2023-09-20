@@ -14,7 +14,7 @@ function Error() {
     <Fragment>
       <Navigation />
       <PageContent title={title}>
-        <p>{message}</p>
+        <h3>{message}</h3>
       </PageContent>
     </Fragment>
   );

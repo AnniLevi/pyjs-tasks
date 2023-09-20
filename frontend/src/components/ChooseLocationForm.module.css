@@ -1,0 +1,11 @@
+.locationForm {
+  margin: 1rem auto;
+  color: var(--color-gray-900);
+}
+
+.locationForm .locationSelect {
+  margin: 1rem auto;
+  font: inherit;
+  padding: 0.1rem 0;
+  border: none;
+}

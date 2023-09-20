@@ -2,12 +2,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import RootLayout from "./components/RootLayout";
 import Error from "./components/Error";
-import WeatherInfo from "./components/WeatherInfo";
 import TaskDetail from "./components/TaskDetail";
 import NewTask from "./components/NewTask";
-import { manipulateTaskAction } from "./utils/actions";
+import { manipulateTaskAction, submitLocationAction } from "./utils/actions";
 import { tasksLoader, taskDetailLoader } from "./utils/loaders";
 import TasksLayout from "./components/TasksLayout";
+import WeatherLayout from "./components/WeatherLayout";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +37,8 @@ const router = createBrowserRouter([
       },
       {
         path: "weather",
-        element: <WeatherInfo />,
+        element: <WeatherLayout />,
+        action: submitLocationAction,
       },
     ],
   },

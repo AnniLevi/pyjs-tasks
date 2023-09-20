@@ -27,3 +27,19 @@ export async function manipulateTaskAction({ request, params }) {
   });
   return redirect("/");
 }
+
+export async function submitLocationAction({ request, params }) {
+  const data = Object.fromEntries(await request.formData());
+
+  const country = data.country ? JSON.parse(data.country) : null;
+  const state = data.state ? JSON.parse(data.state) : null;
+  const city = data.city ? JSON.parse(data.city) : null;
+
+  const requestBody = city || state || country;
+
+  return await sendRequest({
+    path: "/weather",
+    method: request.method,
+    body: requestBody,
+  });
+}

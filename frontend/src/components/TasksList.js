@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 import TaskItem from "./TaskItem";
+import PageContent from "./PageContent";
 import styles from "./TasksList.module.css";
 
 function TasksList({ tasks }) {
@@ -11,11 +12,9 @@ function TasksList({ tasks }) {
   };
 
   return (
-    <div className={styles.tasks}>
+    <PageContent>
       <h1>All Tasks</h1>
-      <button onClick={addNewTaskHandler} className={styles["button-new"]}>
-        New Task
-      </button>
+      <button onClick={addNewTaskHandler}>New Task</button>
       <ul className={styles.list}>
         {tasks.map((task) => (
           <li key={task.id} className={styles.item}>
@@ -23,7 +22,7 @@ function TasksList({ tasks }) {
           </li>
         ))}
       </ul>
-    </div>
+    </PageContent>
   );
 }
 

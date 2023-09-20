@@ -19,6 +19,7 @@ starlette = "==0.27.0"
 typing-extensions = "==4.7.1"
 sqlalchemy = "*"
 psycopg2-binary = "*"
+requests = "*"
 
 [dev-packages]
 toolz = "==0.12.0"
