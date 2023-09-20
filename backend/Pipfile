@@ -20,6 +20,8 @@ typing-extensions = "==4.7.1"
 sqlalchemy = "*"
 psycopg2-binary = "*"
 requests = "*"
+celery = "*"
+redis = "*"
 
 [dev-packages]
 toolz = "==0.12.0"

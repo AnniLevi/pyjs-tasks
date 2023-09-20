@@ -9,7 +9,7 @@
 - Calculation of server response time with warning if server response delay exceeds 500 milliseconds
 - The application is packaged in Docker containers and ready to launch
 - Using a third party OpenWeather API to get weather data
-- Using Celery queue mechanism to process requests to external API
+- Using Celery queue mechanism with a message broker Redis to process requests to external API
 
 ### Technologies used
 
@@ -19,6 +19,7 @@
 - React Router
 - Docker
 - Celery
+- Redis
 - Pipenv
 - Pre-commit
 

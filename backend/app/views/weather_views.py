@@ -1,7 +1,8 @@
 import os
 
-import requests
+from app.celery_worker import monitor_weather_task
 from fastapi import APIRouter, status
+from fastapi.responses import JSONResponse
 
 from ..schemas import weather_schemas
 
@@ -17,4 +18,5 @@ WEATHER_API_URL = os.environ.get("WEATHER_API_URL")
 )
 def get_weather_view(location: weather_schemas.Location):
     url = f"{WEATHER_API_URL}/data/2.5/weather?appid={WEATHER_API_KEY}&lat={location.latitude}&lon={location.longitude}&units=metric"
-    return requests.get(url).json()
+    task = monitor_weather_task.delay(url)
+    return JSONResponse(task.get())
