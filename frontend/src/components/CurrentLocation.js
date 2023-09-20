@@ -1,14 +1,11 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useEffect } from "react";
 
-function CurrentLocation() {
-  const [latitude, setLatitude] = useState(null);
-  const [longitude, setLongitude] = useState(null);
-
+function CurrentLocation({ currentCoords, setCurrentCoords }) {
   useEffect(() => {
     function success(position) {
-      setLatitude(position.coords.latitude);
-      setLongitude(position.coords.longitude);
-      console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+      const latitude = position.coords.latitude.toString();
+      const longitude = position.coords.longitude.toString();
+      setCurrentCoords({ latitude, longitude });
     }
 
     function error() {
@@ -20,14 +17,14 @@ function CurrentLocation() {
     } else {
       console.log("Geolocation not supported");
     }
-  }, [latitude, longitude]);
+  }, [setCurrentCoords]);
 
   return (
     <Fragment>
-      {latitude && longitude && (
-        <p>{`Latitude: ${latitude}, Longitude: ${longitude}`}</p>
+      {currentCoords && (
+        <p>{`Current coordinates: latitude: ${currentCoords.latitude}, longitude: ${currentCoords.longitude}`}</p>
       )}
-      {(!latitude || !longitude) && (
+      {!currentCoords && (
         <p style={{ color: "var(--color-red-500)" }}>
           Unable to retrieve your current location
         </p>

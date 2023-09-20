@@ -9,6 +9,7 @@
 - Calculation of server response time with warning if server response delay exceeds 500 milliseconds
 - The application is packaged in Docker containers and ready to launch
 - Using a third party OpenWeather API to get weather data
+- Getting weather data for the current location as well as for the selected location
 - Using Celery queue mechanism with a message broker Redis to process requests to external API
 
 ### Technologies used

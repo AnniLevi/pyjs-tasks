@@ -1,18 +1,25 @@
-import { useActionData, useNavigation } from "react-router-dom";
-import { Fragment } from "react";
+import { useActionData, useNavigation, useSubmit } from "react-router-dom";
+import { Fragment, useEffect } from "react";
 
 import LoadingSpinner from "./LoadingSpinner";
 
-function WeatherData() {
+function WeatherData({ currentCoords }) {
   const navigation = useNavigation();
-  const data = useActionData();
+  const submit = useSubmit();
+  let data = useActionData();
+
+  useEffect(() => {
+    if (!data && currentCoords) {
+      submit({ country: JSON.stringify(currentCoords) }, { method: "POST" });
+    }
+  }, [currentCoords, data, submit]);
 
   let content;
 
   if (data) {
     content = (
       <Fragment>
-        <h3 style={{ "text-align": "left" }}>Current Weather Data</h3>
+        <h3 style={{ textAlign: "left" }}>Current Weather Data</h3>
         <p>Selected location: {data.name}</p>
         <p>Temperature: {data.main.temp}</p>
         <p>Temperature min: {data.main.temp_min}</p>

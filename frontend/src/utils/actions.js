@@ -28,7 +28,7 @@ export async function manipulateTaskAction({ request, params }) {
   return redirect("/");
 }
 
-export async function submitLocationAction({ request, params }) {
+export async function submitLocationAction({ request }) {
   const data = Object.fromEntries(await request.formData());
 
   const country = data.country ? JSON.parse(data.country) : null;
